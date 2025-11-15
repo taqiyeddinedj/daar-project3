@@ -1,0 +1,52 @@
+package models
+
+import (
+	"strings"
+	"unicode"
+)
+
+type indexer struct {
+	WordToBook map[string]map[int]int
+	Books      map[int]Book
+
+	TotalWords  int
+	UniqueWords int
+}
+
+func Tokenizer(text string) []string {
+	var words []string
+	var current strings.Builder
+
+	for _, r := range text {
+		if unicode.IsLetter(r) || unicode.IsNumber(r) {
+			current.WriteRune(unicode.ToLower(r))
+		} else if current.Len() > 0 {
+			word := current.String()
+			if len(word) > 2 && !stopWords[word] {
+				words = append(words, word)
+			}
+		}
+	}
+	if current.Len() > 0 {
+		word := current.String()
+		if len(word) > 2 && !stopWords[word] {
+			words = append(words, word)
+		}
+	}
+
+	return words
+}
+
+// List of words to avoid indexing later on
+var stopWords = map[string]bool{
+	"the": true, "a": true, "an": true, "and": true, "or": true,
+	"but": true, "in": true, "on": true, "at": true, "to": true,
+	"for": true, "of": true, "as": true, "by": true, "is": true,
+	"was": true, "are": true, "were": true, "been": true, "be": true,
+	"have": true, "has": true, "had": true, "do": true, "does": true,
+	"did": true, "will": true, "would": true, "could": true, "should": true,
+	"this": true, "that": true, "these": true, "those": true, "it": true,
+	"he": true, "she": true, "they": true, "we": true, "you": true,
+	"i": true, "me": true, "my": true, "mine": true, "your": true,
+	"his": true, "her": true, "their": true, "its": true, "our": true,
+}
