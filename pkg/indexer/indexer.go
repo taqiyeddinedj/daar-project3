@@ -79,6 +79,7 @@ func (idx *Indexer) BuildIndexFromDirectory(dir string) error {
 			continue
 		}
 
+		// Print a message every 100 books to show progress.
 		if (i+1)%100 == 0 || i == 0 {
 			fmt.Printf("Indexing book %d/%d (ID: %d)...\n", i+1, len(files), bookID)
 		}
