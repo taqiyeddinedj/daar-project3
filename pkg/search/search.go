@@ -2,6 +2,7 @@ package search
 
 import (
 	"regexp"
+	"sort"
 	"strings"
 
 	"github.com/taqiyeddinedj/daar-project3/pkg/indexer"
@@ -31,6 +32,10 @@ func Search(idx *indexer.Indexer, keyword string) []models.SearchResult {
 			Relevance:   float64(count),
 		})
 	}
+	// sorting the book was missing, we got an output of random mactched book which is not efficient!!
+	sort.Slice(results, func(i, j int) bool {
+		return results[i].Occurrences > results[j].Occurrences
+	})
 
 	return results
 }
@@ -67,5 +72,9 @@ func RegexSearch(idx *indexer.Indexer, pattern string) ([]models.SearchResult, e
 			Relevance:   float64(totalCount),
 		})
 	}
+	// sorting the book was missing, we got an output of random mactched book which is not efficient!!
+	sort.Slice(results, func(i, j int) bool {
+		return results[i].Occurrences > results[j].Occurrences
+	})
 	return results, nil
 }

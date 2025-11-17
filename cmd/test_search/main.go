@@ -24,11 +24,12 @@ func main() {
 		len(idx.Books), idx.UniqueWords)
 
 	// Test searches
-	testQueries := []string{"whale", "captain", "treasure", "love", "dragon"}
-
-	for _, query := range testQueries {
+	//simpleQueries := []string{"whale", "captain", "treasure", "love", "love"}
+	complexQueries := []string{"wha*", "cap|tain", "trea.*", "love", "love^"}
+	for _, query := range complexQueries {
 		fmt.Printf("Searching for '%s'...\n", query)
-		results := search.Search(idx, query)
+		results, _ := search.RegexSearch(idx, query)
+		//results, _ := search.RegexSearch(idx, query)
 
 		if len(results) == 0 {
 			fmt.Printf("  No books found\n\n")
