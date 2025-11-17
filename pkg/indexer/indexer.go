@@ -93,7 +93,7 @@ func (idx *Indexer) BuildIndexFromDirectory(dir string) error {
 
 	idx.UniqueWords = len(idx.WordToBooks)
 
-	fmt.Printf("\n✓ Indexing complete!\n")
+	fmt.Printf("\n Indexing complete!\n")
 	fmt.Printf("  Total books: %d\n", len(idx.Books))
 	fmt.Printf("  Total words: %d\n", idx.TotalWords)
 	fmt.Printf("  Unique words: %d\n", idx.UniqueWords)

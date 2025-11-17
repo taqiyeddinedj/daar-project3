@@ -20,7 +20,7 @@ func main() {
 		os.Exit(1)
 	}
 
-	fmt.Printf("✓ Index loaded: %d books, %d unique words\n\n",
+	fmt.Printf(" Index loaded: %d books, %d unique words\n\n",
 		len(idx.Books), idx.UniqueWords)
 
 	// Test searches
