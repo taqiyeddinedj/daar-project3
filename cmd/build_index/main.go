@@ -44,6 +44,6 @@ func main() {
 	}
 
 	elapsed := time.Since(startTime)
-	fmt.Printf("\n✓ Index built successfully in %v\n", elapsed)
-	fmt.Printf("✓ Index saved to: %s\n", indexPath)
+	fmt.Printf("\n Index built successfully in %v\n", elapsed)
+	fmt.Printf("Index saved to: %s\n", indexPath)
 }
