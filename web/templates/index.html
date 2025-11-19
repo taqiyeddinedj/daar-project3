@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Search Engine</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>📚 Book Search Engine</h1>
+        <p class="subtitle">Search through 1,664 books from Project Gutenberg</p>
+
+        <!-- Search Box -->
+        <div class="search-box">
+            <input type="text" id="searchInput" placeholder="Search for books...">
+            <button onclick="search()">Search</button>
+            <button onclick="toggleAdvanced()">Advanced</button>
+        </div>
+
+        <!-- Advanced Search (hidden by default) -->
+        <div id="advancedSearch" style="display: none;">
+            <input type="text" id="regexInput" placeholder="RegEx pattern (e.g., ^whal.*)">
+            <button onclick="regexSearch()">RegEx Search</button>
+        </div>
+
+        <!-- Results -->
+        <div id="results"></div>
+    </div>
+
+    <script src="/static/app.js"></script>
+</body>
+</html>
