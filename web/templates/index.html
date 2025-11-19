@@ -3,30 +3,71 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Book Search Engine</title>
+    <title>Digital Library</title>
     <link rel="stylesheet" href="/static/style.css">
 </head>
 <body>
-    <div class="container">
-        <h1>📚 Book Search Engine</h1>
-        <p class="subtitle">Search through 1,664 books from Project Gutenberg</p>
+    <header class="header">
+        <div class="container">
+            <h1>📚 Digital Library</h1>
+            <p>Book Search Engine - DAAR Project 3</p>
+        </div>
+    </header>
 
-        <!-- Search Box -->
-        <div class="search-box">
-            <input type="text" id="searchInput" placeholder="Search for books...">
-            <button onclick="search()">Search</button>
-            <button onclick="toggleAdvanced()">Advanced</button>
+    <main class="container">
+        <!-- HOME VIEW -->
+        <div id="home-view" class="view active">
+            <section class="search-section">
+                <h2>Search Books</h2>
+                
+                <!-- Z-Library style tabs -->
+                <div class="search-tabs">
+                    <button class="tab-btn active" data-type="keyword" data-placeholder="Search by title, author, keyword...">General Search</button>
+                    <button class="tab-btn" data-type="regex" data-placeholder="Advanced search using regex patterns (e.g., wha.* for whale/what)">Regex Search</button>
+                </div>
+
+                <div class="search-box">
+                    <input type="text" id="search-input" placeholder="Search by title, author, keyword...">
+                    <button id="search-btn">Search</button>
+                </div>
+            </section>
+
+            <section id="results-section" class="hidden">
+                <div id="loading" class="loading hidden">
+                    <div class="spinner"></div>
+                    <p>Searching...</p>
+                </div>
+                <p id="results-count"></p>
+                <div id="books-grid" class="books-grid"></div>
+                <div id="pagination" class="pagination hidden"></div>
+            </section>
         </div>
 
-        <!-- Advanced Search (hidden by default) -->
-        <div id="advancedSearch" style="display: none;">
-            <input type="text" id="regexInput" placeholder="RegEx pattern (e.g., ^whal.*)">
-            <button onclick="regexSearch()">RegEx Search</button>
+        <!-- BOOK DETAILS VIEW -->
+        <div id="book-view" class="view">
+            <button class="back-btn" onclick="showHome()">← Back</button>
+            <div id="book-details" class="book-details"></div>
+            <div class="recommendations-section">
+                <h3>📖 Recommended Books</h3>
+                <div id="recommendations-grid" class="books-grid"></div>
+            </div>
         </div>
 
-        <!-- Results -->
-        <div id="results"></div>
-    </div>
+        <!-- READER VIEW -->
+        <div id="reader-view" class="view">
+            <div class="reader-header">
+                <button class="back-btn" onclick="closeReader()">← Back</button>
+                <div class="reader-controls">
+                    <button onclick="changeFontSize(-1)">A-</button>
+                    <button onclick="changeFontSize(1)">A+</button>
+                    <button onclick="toggleTheme()">🌓</button>
+                </div>
+            </div>
+            <div class="reader-container">
+                <div id="reader-content" class="reader-content"></div>
+            </div>
+        </div>
+    </main>
 
     <script src="/static/app.js"></script>
 </body>

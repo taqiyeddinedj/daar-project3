@@ -1,2 +1,3 @@
 go.sum
-data/*
+data/books
+data/index.json
