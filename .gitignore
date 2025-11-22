@@ -1,5 +1,4 @@
 go.sum
-data/books
-data/index.json
+data/*
 chart*.{pdf,png}
-benchmark_results.josn
+benchmark_results.json
