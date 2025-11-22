@@ -1,4 +1,17 @@
-go.sum
-data/*
-chart*.{pdf,png}
+data/books/
+data/index.json
+data/jaccard_graph.json
+
+# Charts
+chart*.pdf
+chart*.png
+
+# Benchmarks
 benchmark_results.json
+
+# Go
+go.sum
+book-server
+
+# Logs
+*.log
