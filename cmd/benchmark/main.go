@@ -35,17 +35,17 @@ func main() {
 	if err != nil {
 		panic(err)
 	}
-	fmt.Printf("✓ Loaded %d books\n", len(idx.Books))
+	fmt.Printf(" Loaded %d books\n", len(idx.Books))
 	fmt.Println("Loading Jaccard graph...")
 	jaccardGraph, err := graph.LoadGraphFromFile("data/jaccard_graph.json")
 	if err != nil {
 		panic(err)
 	}
-	fmt.Printf("✓ Loaded graph with %d edges\n", jaccardGraph.EdgeCount)
+	fmt.Printf(" Loaded graph with %d edges\n", jaccardGraph.EdgeCount)
 
 	fmt.Println("Calculating PageRank...")
 	pageRank := ranking.CalculatePageRank(jaccardGraph, 20, 0.85)
-	fmt.Println("✓ PageRank calculated\n")
+	fmt.Println(" PageRank calculated\n")
 
 	results := AllResults{
 		SearchSimple:    []BenchmarkResult{},
@@ -120,7 +120,7 @@ func main() {
 	encoder.SetIndent("", "  ")
 	encoder.Encode(results)
 	file.Close()
-	fmt.Println("✓ Results saved to benchmark_results.json")
+	fmt.Println(" Results saved to benchmark_results.json")
 }
 
 func benchmarkSimpleSearch(idx *indexer.Indexer, pageRank map[int]float64, query string, iterations int) BenchmarkResult {
