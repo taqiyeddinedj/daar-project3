@@ -37,7 +37,7 @@ chmod +x setup.sh setup.sh
 
 # Run setup (download books+ builds index + graph + binary)
 ./setup.sh
-
+```
 
 
 # Run the Server
@@ -95,7 +95,6 @@ sudo systemctl status book-library
 ```
 
 ---
-
 ## Project Structure
 
 ```
