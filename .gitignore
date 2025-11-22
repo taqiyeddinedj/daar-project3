@@ -7,3 +7,5 @@ benchmark_results.json
 
 go.sum
 book-server
+
+cmd/benchmark/venv
