@@ -2,16 +2,8 @@ data/books/
 data/index.json
 data/jaccard_graph.json
 
-# Charts
-chart*.pdf
-chart*.png
-
-# Benchmarks
+report/*
 benchmark_results.json
 
-# Go
 go.sum
 book-server
-
-# Logs
-*.log
