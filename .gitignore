@@ -1,6 +1,4 @@
-data/books/
-data/index.json
-data/jaccard_graph.json
+data/*
 
 report/*
 benchmark_results.json
